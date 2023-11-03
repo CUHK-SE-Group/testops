@@ -1,0 +1,33 @@
+version: "3.9"  # Use a version appropriate for your setup
+services:
+  openobserve:
+    image: public.ecr.aws/zinclabs/openobserve:latest
+    volumes:
+      - ./data:/data  # Maps the local 'data' directory to '/data' in the container
+    environment:
+      ZO_DATA_DIR: "/data"
+      ZO_ROOT_USER_EMAIL: "root@example.com"
+      ZO_ROOT_USER_PASSWORD: "Complexpass#123"
+    ports:
+      - "5080:5080"  # Maps port 5080 on the host to port 5080 in the container
+    networks:
+        - redpanda_network
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:8.10.4
+    container_name: filebeat
+    user: root
+    volumes:
+      - ./filebeat.docker.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/log/:/var/log
+    command:
+      - "-e"
+      - "--strict.perms=false"
+    networks:
+      - redpanda_network
+
+networks:
+  redpanda_network:
+    driver: bridge
+    external: true
