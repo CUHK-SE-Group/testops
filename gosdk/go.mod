@@ -1,6 +1,6 @@
 module github.com/Lincyaw/testops/gosdk
 
-go 1.21.1
+go 1.21
 
 require (
 	github.com/samber/slog-multi v1.0.2
