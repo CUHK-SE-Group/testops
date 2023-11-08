@@ -1,4 +1,4 @@
-module golang
+module github.com/CUHK-SE-Group/testops/golang
 
 go 1.21
 
