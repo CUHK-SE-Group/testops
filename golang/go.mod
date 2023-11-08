@@ -1,6 +1,6 @@
-module github.com/CUHK-SE-Group/testops/golang
+module github.com/Lincyaw/testops/golang
 
-go 1.21
+go 1.21.1
 
 require (
 	github.com/samber/slog-multi v1.0.2
@@ -13,6 +13,6 @@ require (
 	github.com/pierrec/lz4/v4 v4.1.18 // indirect
 	github.com/samber/lo v1.38.1 // indirect
 	github.com/twmb/franz-go/pkg/kmsg v1.7.0 // indirect
-	golang.org/x/crypto v0.14.0 // indirect
-	golang.org/x/exp v0.0.0-20230522175609-2e198f4a06a1 // indirect
+	golang.org/x/crypto v0.13.0 // indirect
+	golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17 // indirect
 )
