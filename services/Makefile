@@ -59,3 +59,7 @@ ps-all:
 logs-all:
 	@echo "Fetching logs of all services..."
 	@$(foreach service,$(SERVICES),docker compose -f $(service)/docker-compose.yaml logs -f &)
+
+
+network:
+	docker network create redpanda_network
