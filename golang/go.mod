@@ -1,4 +1,4 @@
-module github.com/Lincyaw/testops/golang
+module github.com/Lincyaw/testops/gosdk
 
 go 1.21.1
 
