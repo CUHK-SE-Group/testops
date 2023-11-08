@@ -1,5 +1,8 @@
 # Makefile
 
+HOSTNAME ?= debian  # replace this !!! or pass this !! :   make start-all HOSTNAME=debian
+export HOSTNAME
+
 # Define services
 SERVICES := openobserve redpanda
 
