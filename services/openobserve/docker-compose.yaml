@@ -26,7 +26,17 @@ services:
       - "--strict.perms=false"
     networks:
       - redpanda_network
-
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      # - /path/to/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    networks:
+      - redpanda_network
+volumes:
+  prometheus-data:
 networks:
   redpanda_network:
     driver: bridge
